@@ -9,13 +9,16 @@ A small library providing utility methods to send iOS and Android Push Notificat
 
 ## Usage
 
-  var afpushservice = require('AFPushNotificationServiceSDK-nodeJS')
-  var didSend = afpushservice.sendPushNotification(<apiKey>, <filterDictionar>);
+var test = new AFPushService()
+test.on("success", (result) => {
+    console.log(result.statusCode);
+    console.log(result.toJSON());
+});
 
-
-## Tests
-
-  npm test
+test.on("error", (error) => {
+    console.log("error: "+error);
+});
+test.sendPushNotification("09f3eb8e44e0a6b65ca4d43f139a8d36", "Noch ein Test", "Neue Nachricht", {}, null);
 
 ## Contributing
 
