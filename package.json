@@ -1,0 +1,23 @@
+{
+  "name": "afpushnotificationservicesdk-nodejs",
+  "version": "1.0.0",
+  "description": "appfarms push notification service - nodeJS SDK",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@appfarms.com:AFPushNotificationServiceSDK-nodeJS"
+  },
+  "author": "appfarms GmbH & Co. KG <info@appfarms.com> (http://www.appfarms.com)",
+  "license": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
+}
