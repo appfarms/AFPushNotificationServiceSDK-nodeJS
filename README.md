@@ -1,7 +1,7 @@
 AFPushNotificationServiceSDK-nodeJS
 =========
 
-[![npm package](https://nodei.co/npm/request.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/afpushnotificationservicesdk-nodejs)
+[![npm package](https://nodei.co/npm/afpushnotificationservicesdk-nodejs.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/afpushnotificationservicesdk-nodejs)
 
 A small library providing utility methods to send iOS and Android Push Notifications via the appfarms push notification service (http://push.appfarms.com).
 
