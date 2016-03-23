@@ -4,7 +4,7 @@
   "description": "appfarms push notification service - nodeJS SDK",
   "main": "index.js",
   "scripts": {
-    "test": "No Tests implementednpm"
+    "test": "No Tests implemented"
   },
   "repository": {
     "type": "git",

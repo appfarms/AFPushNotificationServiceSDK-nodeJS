@@ -1,5 +1,7 @@
-/**
- * Created by dominikriedel on 22.03.16.
+/*!
+ * afpushservice :: nodejs sdk
+ * Copyright (c) 2016 appfarms GmbH & Co. KG <info@appfarms.com>
+ * MIT Licensed
  */
 "use strict"
 
@@ -21,7 +23,7 @@ class AFPushService extends EventEmitter
      * @param title - message title (only Android and iOS Notification Center)
      * @param message - notification message
      * @param payload - custom payload
-     * @param filter
+     * @param filter - custom filter
      */
     sendPushNotification (apiKey, title, message, payload, filter) {
 
@@ -32,7 +34,7 @@ class AFPushService extends EventEmitter
         }
 
         // check if title is string
-        if (title != null && typeof title != "string" || title.length <= 0)
+        if (title != null && (typeof title != "string" || title.length <= 0))
         {
             this.emit("error", new Error("No valid title given :'"+ title +"'"));
         }
@@ -49,15 +51,32 @@ class AFPushService extends EventEmitter
             this.emit("error", new Error("No valid payload given :'"+ payload +"'"));
         }
 
-        // check if filter is array
-
+        // check if filter is object
+        if (filter != null && typeof filter != "object")
+        {
+            this.emit("error", new Error("No valid filter given :'"+ filter +"'"));
+        }
 
         var requestData = {
             "restKey": apiKey,
-            "body": message,
-            "title": title
+            "body": message
         };
 
+        if (title != null)
+        {
+            requestData.title = title
+        }
+
+        if (payload != null)
+        {
+            requestData.payload = payload;
+        }
+
+        if (filter != null)
+        {
+            requestData.matchFilters = 1;
+            requestData.filters = [filter];
+        }
         request({
                 method: "POST",
                 url : 'https://push.appfarms.com/api/notifications',
@@ -71,7 +90,6 @@ class AFPushService extends EventEmitter
                 this.emit('error', err);
             });
     }
-
 }
 
 module.exports =  AFPushService;

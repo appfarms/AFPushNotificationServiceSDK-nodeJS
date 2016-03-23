@@ -1,26 +1,43 @@
 AFPushNotificationServiceSDK-nodeJS
 =========
 
-A small library providing utility methods to send iOS and Android Push Notifications via the appfarms push notification service.
+[![npm package](https://nodei.co/npm/request.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/afpushnotificationservicesdk-nodejs)
+
+A small library providing utility methods to send iOS and Android Push Notifications via the appfarms push notification service (http://push.appfarms.com).
+
+## Prerequirements
+You need to create an REST API Key from the appfarms push notification service (http://push.appfarms.com). If you do not have yet, you will
+need to create a new Account on this website and subsribe to the service plan of the appfarms push notification service.
 
 ## Installation
 
-  npm install AFPushNotificationServiceSDK-nodeJS --save
+  npm install afpushnotificationservicesdk-nodejs --save
 
 ## Usage
-
-var test = new AFPushService()
-test.on("success", (result) => {
+```javascript
+var afpushservice = new AFPushService()
+afpushservice.on("success", (result) => {
     console.log(result.statusCode);
     console.log(result.toJSON());
 });
 
-test.on("error", (error) => {
+afpushservice.on("error", (error) => {
     console.log("error: "+error);
 });
-test.sendPushNotification("09f3eb8e44e0a6b65ca4d43f139a8d36", "Noch ein Test", "Neue Nachricht", {}, null);
+afpushservice.sendPushNotification("09f3eb8e44e0a6b65ca4d43f139a8d36", "Noch ein Test", "Neue Nachricht", {}, null);
+```
 
-## Contributing
+#sendPushNotification
+
+Parameter:
+$1 -> APIKey
+$2 -> title of push notification
+$3 -> message of push notification
+$4 -> custom payload
+$5 -> filter as array
+
+#Filter
+
 
 
 ## Release History
