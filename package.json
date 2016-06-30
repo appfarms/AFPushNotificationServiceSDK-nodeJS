@@ -1,6 +1,6 @@
 {
   "name": "afpushnotificationservicesdk-nodejs",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "appfarms push notification service - nodeJS SDK",
   "main": "index.js",
   "scripts": {
