@@ -52,7 +52,7 @@ class AFPushService extends EventEmitter
         }
 
         // check if filter is object
-        if (filter != null && typeof filter != "object")
+        if (filter != null && (typeof filter != "object" || typeof filter != "array"))
         {
             this.emit("error", new Error("No valid filter given :'"+ filter +"'"));
         }
@@ -75,7 +75,7 @@ class AFPushService extends EventEmitter
         if (filter != null)
         {
             requestData.matchFilters = 1;
-            requestData.filters = [filter];
+            requestData.filters = (typeof filter != "object") ? [filter] : filter;
         }
         request({
                 method: "POST",
